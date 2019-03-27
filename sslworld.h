@@ -31,6 +31,7 @@ Copyright (C) 2011, Parsian Robotic Center (eew.aut.ac.ir/~parsian/grsim)
 #include <QUdpSocket>
 #include <string>
 #include "zsplugin.hpp"
+#include "dllexport.h"
 #define WALL_COUNT 10
 
 class RobotsFomation;
@@ -56,8 +57,8 @@ public:
     virtual void run() override;
     dReal customDT;
     bool isGLEnabled;
-    SSLWorld();
-    virtual ~SSLWorld();
+    DLL_EXPORT SSLWorld();
+    DLL_EXPORT virtual ~SSLWorld();
     void step(dReal dt=-1);
     SSL_WrapperPacket* generatePacket(int cam_id=0);
     void publishPacket(int cam_id = -1);
