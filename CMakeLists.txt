@@ -51,7 +51,7 @@ set(srcs
     ${CPPFILES}
 )
 
-add_library(zss_simulator ${srcs})
+add_library(zss_simulator SHARED ${srcs})
 
 target_link_libraries(zss_simulator ${libs})
 
