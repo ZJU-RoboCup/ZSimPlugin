@@ -230,7 +230,7 @@ SSLWorld::SSLWorld()
         float a1 = -form1->x[k];
         float a2 = form1->y[k];
         float a3 = ROBOT_START_Z(cfg);
-        robots[k] = new Robot(p,
+        robots[k] = new SimRobot(p,
                               ball,
                               cfg,
                               -form1->x[k],
@@ -245,7 +245,7 @@ SSLWorld::SSLWorld()
     }
     cfg->robotSettings = cfg->yellowSettings;
     for (int k=0;k<cfg->Robots_Count();k++)
-        robots[k+cfg->Robots_Count()] = new Robot(p,ball,cfg,form2->x[k],form2->y[k],ROBOT_START_Z(cfg),ROBOT_GRAY,ROBOT_GRAY,ROBOT_GRAY,k+cfg->Robots_Count()+1,wheeltexid,-1);//XXX
+        robots[k+cfg->Robots_Count()] = new SimRobot(p,ball,cfg,form2->x[k],form2->y[k],ROBOT_START_Z(cfg),ROBOT_GRAY,ROBOT_GRAY,ROBOT_GRAY,k+cfg->Robots_Count()+1,wheeltexid,-1);//XXX
 
     p->initAllObjects();
 
@@ -961,7 +961,7 @@ void RobotsFomation::loadFromFile(const QString& filename)
     }
 }
 
-void RobotsFomation::resetRobots(Robot** r,int team)
+void RobotsFomation::resetRobots(SimRobot** r,int team)
 {
     dReal dir=-1;
     if (team==1) dir = 1;

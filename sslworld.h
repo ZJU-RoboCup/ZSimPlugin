@@ -83,7 +83,7 @@ public:
     QUdpSocket *commandSocket;
     QUdpSocket *blueStatusSocket,*yellowStatusSocket;
     bool updatedCursor;
-    Robot* robots[MAX_ROBOT_COUNT*2];
+    SimRobot* robots[MAX_ROBOT_COUNT*2];
     QTime *timer;
     int sendGeomCount;
 public slots:
@@ -99,7 +99,7 @@ class RobotsFomation {
         RobotsFomation(int type, ConfigWidget* _cfg);
         void setAll(dReal *xx,dReal *yy);
         void loadFromFile(const QString& filename);
-        void resetRobots(Robot** r,int team);
+        void resetRobots(SimRobot** r,int team);
     private:
         ConfigWidget* cfg;
 };
